@@ -1,26 +1,30 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import TagCompletionProvider from './provider/tagCompletionProvider';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	// 定义使用的文档类型
+	const selector: vscode.DocumentSelector = [
+		{
+			language: 'vue', scheme: 'file'
+		}, {
+			language: 'html', scheme: 'file'
+		}
+	];
+	
+	/**
+	 * registerCompletionItemProvider (fn)
+	 * @params 
+	 * 	selector: DocumentSelector 文档选择器
+	 * 	provider: CompletionItemProvider
+	 *  ...triggerCharacters: string[] 当用户输入其中一个字符时触发补全。
+	 * @wiki https://code.visualstudio.com/api/references/vscode-api#languages
+	 *  
+	 */ 
+	let tagCompletion = vscode.languages.registerCompletionItemProvider(selector, new TagCompletionProvider(), '<');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "mtdm-vue" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('mtdm-vue.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from mtdm-vue-complement!');
-	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(
+		tagCompletion
+	);
 }
 
 // this method is called when your extension is deactivated
