@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import TagCompletionProvider from './provider/tagCompletionProvider';
+import AttrCompletionProvider from './provider/attrCompletionProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 	// 定义使用的文档类型
@@ -21,9 +22,11 @@ export function activate(context: vscode.ExtensionContext) {
 	 *  
 	 */ 
 	let tagCompletion = vscode.languages.registerCompletionItemProvider(selector, new TagCompletionProvider(), '<');
+	let attrCompletion = vscode.languages.registerCompletionItemProvider(selector, new AttrCompletionProvider(), ' ', ':', '\n');
 
 	context.subscriptions.push(
-		tagCompletion
+		tagCompletion,
+		attrCompletion
 	);
 }
 

@@ -10,20 +10,35 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:mtdm-vue.helloWorld"
-  ],
+		"onLanguage:html",
+		"onLanguage:vue",
+		"onCommand:mtdm-vue-helper.search"
+	],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "mtdm-vue.helloWorld",
+        "command": "mtdm-vue-helper.search",
         "title": "Hello World"
       }
     ],
+    "keybindings": [
+			{
+				"command": "mtdm-vue-helper.search",
+				"key": "shift+cmd+s",
+				"when": "editorTextFocus"
+			}
+		],
     "configuration": {
       "type": "object",
       "title": "MTDM Helper Configuration",
-      "properties": {}
+      "properties": {
+        "mtdm-helper.sample-quotes": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否为使用单引号"
+        }
+      }
     }
   },
   "scripts": {

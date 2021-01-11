@@ -8,7 +8,7 @@ import { html_beautify } from 'js-beautify';
 import { getTextBeforePosition, getConfig, notInTemplate } from '../utils/index';
 
 export default class TagCompletionProvider implements CompletionItemProvider {
-    quotes: string = '"'; // 单引号 | 双引号
+    quotes = getConfig('sample-quotes') ? "'" : '"'; // 单引号 | 双引号
     size: number = 2;
     wrapAttributes: 'auto' | 'force' | 'force-expand-multiline' | 'force-aligned' | 'aligned-multiple' = 'force-expand-multiline';
     tagStartReg = /<([\w]*)$/;
@@ -20,7 +20,7 @@ export default class TagCompletionProvider implements CompletionItemProvider {
             if (tagDesc.text) {
                 return tagDesc.text;
             }
-            let html = `<${tagDesc.tag}>`;
+            let html = `<${tagDesc.tag}`;
             // 处理属性
             if (tagDesc.attrs) {
                 const attrs = tagDesc.attrs;
@@ -73,7 +73,7 @@ export default class TagCompletionProvider implements CompletionItemProvider {
 
     // 暴露的provider方法
     provideCompletionItems (document: TextDocument, position: Position, token: CancellationToken): ProviderResult<CompletionItem[] | CompletionList> {
-        this.quotes = getConfig('double-quotes') ? '"' : "'";
+        this.quotes = getConfig('sample-quotes') ? "'" : '"';
         this.size = getConfig('indent-size') || 2;
 
         const txt = getTextBeforePosition(document, position);
