@@ -95,3 +95,31 @@ export function getPreTagAndAttrAndEvent (document: TextDocument, position: Posi
 
   return result;
 }
+
+export function getPreTag(document: TextDocument, position: Position) {
+  let line = position.line;
+  let curLine = position.line
+  let txt = getTextBeforePosition(document, position)
+  let tagMatch = PRE_TAG_REG.exec(txt)
+
+  if (END_TAG_REG.test(txt)) {
+    return null
+  }
+
+  if (tagMatch === null) {
+    while(line - curLine < 10 && curLine >= 0 && tagMatch === null) {
+      curLine--
+      txt = document.lineAt(curLine).text
+      tagMatch = PRE_TAG_REG.exec(txt)
+      if (END_TAG_REG.test(txt)) {
+        return null
+      }
+    }
+  }
+
+  if (tagMatch !== null) {
+    return tagMatch[1]
+  }
+
+  return null
+}
