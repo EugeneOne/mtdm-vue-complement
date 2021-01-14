@@ -110,6 +110,7 @@ declare interface MTDMFuncComponentDesc {
     prefix: string
     // 组件名称
     name: string
+    source: string
     sort?: number
     detail?: string
     documentation?: string

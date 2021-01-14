@@ -1,4 +1,37 @@
-const button: MTDMComponentDesc = {
+const params = [
+    {
+        key: 'type',
+        document: '提示类型',
+        types: ['string'],
+        default: ''
+    },
+    {
+        key: 'message',
+        document: '提示内容',
+        types: ['string'],
+        default: ''
+    },
+    {
+        key: 'icon',
+        document: '图标类名',
+        types: ['string'],
+        default: ''
+    }
+]
+
+const dialog: any = {
+    toast: {
+        type: 'function',
+        name: 'toast.loading',
+        source: 'MTDM',
+        detail: '加载',
+        documentation: '加载提示',
+        snippets: {
+            funcName: 'loading',
+
+        }
+
+    } as MTDMFuncComponentDesc,
     type: 'normal',
     name: 'mtdm-btn',
     source: 'MTDM',
