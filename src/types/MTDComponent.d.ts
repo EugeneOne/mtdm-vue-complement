@@ -93,9 +93,10 @@ declare interface MTDMComponentDesc {
 }
 
 declare interface FuncSnippetsParam {
-    type: 'string' | 'number' | 'other',
+    types: string[],
     key: string,
-    value: string
+    default: string,
+    document: string
   }
 
 declare interface FuncSnippets {

@@ -123,3 +123,23 @@ export function getPreTag(document: TextDocument, position: Position) {
 
   return null
 }
+
+export function notInScript(document: TextDocument, position: Position): boolean {
+  let line = position.line;
+  while(line) {
+    if (/^\s*<script.*>\s*$/.test(<string>document.lineAt(line).text)) {
+      return false
+    }
+    if (/^\s*<template.*>\s*$/.test(<string>document.lineAt(line).text)) {
+      return true
+    }
+    if (/^\s*<style.*>\s*$/.test(<string>document.lineAt(line).text)) {
+      return true
+    }
+    if (/^\s*<\/script>.*$/.test(<string>document.lineAt(line).text)) {
+      return true
+    }
+    line--;
+  }
+  return false;
+}
