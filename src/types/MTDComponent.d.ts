@@ -34,7 +34,7 @@ declare interface PropDesc {
 
 declare interface TagSnippetsAttr {
     // 为null代表是无值属性，表现形式： <input disabled></input>
-    [attrName: string]: string | null
+    [attrName: string]: string | null | number
 }
 
 declare interface MethodDesc {
