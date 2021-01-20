@@ -98,35 +98,38 @@ const button: MTDMComponentDesc = {
                 }
             ],
             detail: '按钮原生宽度类型',
-            documentation: '按钮原生宽度类型'
+            documentation: ''
         },
         {
             key: 'loading',
             types: [ 'boolean' ],
+            default: false,
             options: [],
             detail: '是否加载中状态',
-            documentation: '是否设置加载中状态'
+            documentation: ''
         },
         {
             key: 'disabled',
             types: [ 'boolean' ],
+            default: false,
             options: [],
             detail: '禁用状态',
-            documentation: '是否设置禁用状态'
+            documentation: ''
         },
         {
             key: 'icon',
             types: [ 'string' ],
             options: [],
             detail: '按钮左侧图标类型',
-            documentation: '设置按钮左侧图标类型'
+            documentation: ''
         },
         {
             key: 'round',
             types: [ 'boolean' ],
+            default: true,
             options: [],
             detail: '圆弧边框',
-            documentation: '是否是圆弧边框'
+            documentation: ''
         },
     ],
     events: [
