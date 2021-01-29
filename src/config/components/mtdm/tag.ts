@@ -73,111 +73,83 @@ const tag: MTDMComponentDesc = {
             documentation: 'fillet；circle；quarter'
         },
         {
-            key: 'autoplay',
-            types: ['boolean'],
-            default: true,
-            detail: '是否自动播放',
-            documentation: ''
-        },
-        {
-            key: 'loop',
-            types: ['boolean'],
-            default: true,
-            detail: '是否可以循环播放',
-            documentation: ''
-        },
-        {
-            key: 'show-indicators',
-            types: ['boolean'],
-            default: true,
-            detail: '是否展示轮播指示器',
-            documentation: ''
-        },
-        {
-            key: 'interval',
-            types: ['number'],
-            default: '300',
-            detail: '播放间隔时间',
-            documentation: 'ms'
-        },
-        {
-            key: 'speed',
-            types: ['number'],
-            default: '500',
-            detail: '滑动速度',
-            documentation: 'ms'
-        },
-        {
-            key: 'direction',
-            types: ['string'],
+            key: 'sharp',
+            types: ['string', 'array'],
             options: [
                 {
-                    value: 'horizontal',
-                    detail: '横向',
+                    value: 'top-left',
+                    detail: ''
                 },
                 {
-                    value: 'vertical',
-                    detail: '纵向',
-                }
+                    value: 'top-right',
+                    detail: ''
+                },
+                {
+                    value: 'bottom-left',
+                    detail: ''
+                },
+                {
+                    value: 'bottom-right',
+                    detail: ''
+                },
             ],
-            default: 'horizontal',
-            detail: '滚动方向',
-            documentation: 'horizontal（横向），vertical（纵向）'
+            detail: '标签直角',
+            documentation: 'top-left；top-right；bottom-left；bottom-right'
         },
         {
-            key: 'touchable',
-            types: ['boolean'],
-            options: [],
-            default: true,
-            detail: '是否可以手动切换',
+            key: 'list',
+            types: ['array'],
+            detail: '多条组合标签列表',
             documentation: ''
         },
         {
-            key: 'initPage',
-            types: ['number'],
-            options: [],
-            default: 0,
-            detail: '初始位置索引值',
-            documentation: ''
-        },
-        {
-            key: 'indicator-type',
+            key: 'text-color',
             types: ['string'],
+            detail: '文本颜色',
+            documentation: ''
+        },
+        {
+            key: 'fill-color',
+            types: ['string'],
+            detail: '填充颜色',
+            documentation: ''
+        },
+        {
+            key: 'theme',
+            types: ['string'],
+            default: 'default',
             options: [
+                {
+                    value: 'default',
+                    detail: ''
+                },
                 {
                     value: 'primary',
-                    detail: '',
+                    detail: ''
                 },
                 {
-                    value: 'percent',
-                    detail: '数字指示器',
+                    value: 'success',
+                    detail: ''
+                },
+                {
+                    value: 'wraning',
+                    detail: ''
+                },
+                {
+                    value: 'danger',
+                    detail: ''
                 }
             ],
-            default: 'primary',
-            detail: '指示器的样式',
-            documentation: ''
+            detail: '预置主题',
+            documentation: 'default；primary；success；wraning；danger'
         },
         {
-            key: 'indicator-position',
-            types: ['string'],
-            options: [
-                {
-                    value: 'right',
-                    detail: '',
-                },
-                {
-                    value: 'left',
-                    detail: '',
-                },
-                {
-                    value: 'center',
-                    detail: '横向',
-                }
-            ],
-            default: 'center',
-            detail: '指示器的位置',
-            documentation: '纵向默认为left'
-        },
+            key: 'closable',
+            types: ['boolean'],
+            default: false,
+            detail: '是否可关闭',
+            documentation: ''
+        }
     ],
     events: [
         {

@@ -19,7 +19,7 @@ const params: FuncSnippetsParam[] = [
     }
 ]
 
-const toast: any = {
+const $toast: any = {
     toast: {
         type: 'function',
         name: 'toast',
@@ -37,4 +37,4 @@ const toast: any = {
     } as MTDMFuncComponentDesc,
 };
 
-export default toast;
+export default $toast;

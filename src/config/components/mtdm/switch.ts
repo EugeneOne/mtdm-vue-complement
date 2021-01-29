@@ -1,4 +1,4 @@
-const $switch: MTDMComponentDesc = {
+const Switch: MTDMComponentDesc = {
     type: 'normal',
     name: 'mtdm-switch',
     source: 'MTDM',
@@ -29,4 +29,4 @@ const $switch: MTDMComponentDesc = {
     }
 };
 
-export default $switch;
+export default Switch;

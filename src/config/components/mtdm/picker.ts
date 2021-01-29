@@ -1,4 +1,4 @@
-const button: MTDMComponentDesc = {
+const picker: MTDMComponentDesc = {
     type: 'normal',
     name: 'mtdm-btn',
     source: 'MTDM',
@@ -6,7 +6,7 @@ const button: MTDMComponentDesc = {
         {
             key: 'disabled',
             types: [ 'boolean' ],
-            default: 'false',
+            default: false,
             options: [],
             detail: '禁用状态',
             documentation: '是否设置禁用'
@@ -148,4 +148,4 @@ const button: MTDMComponentDesc = {
     }
 };
 
-export default button;
+export default picker;

@@ -28,7 +28,7 @@ export default class AttrValueCompletionProvider implements CompletionItemProvid
         const tagName = match[3];
         if (tag && tagName && !notInTemplate(document, position)) {
             const tagInfo = mtdConfig.normalComponents.filter((item: MTDMComponentDesc) => item.name === tag)[0] || { props: [] };
-            const attr: PropDesc = tagInfo.props.filter((item: PropDesc) => item.key === tagName)[0] || { options: [] };
+            const attr: PropDesc = (tagInfo.props || []).filter((item: PropDesc) => item.key === tagName)[0] || { options: [] };
             const options = attr.options || [];
             const completeEqualSign = true;
             return options.map((option: AttrOptionDesc) => this.buildAttrValueSuggestion(option, tagInfo.source));

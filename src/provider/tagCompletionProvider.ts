@@ -73,6 +73,7 @@ export default class TagCompletionProvider implements CompletionItemProvider {
 
     // 暴露的provider方法
     provideCompletionItems (document: TextDocument, position: Position, token: CancellationToken): ProviderResult<CompletionItem[] | CompletionList> {
+        
         this.quotes = getConfig('sample-quotes') ? "'" : '"';
         this.size = getConfig('indent-size') || 2;
 

@@ -30,7 +30,7 @@ const selectOption: MTDMComponentDesc = {
         {
             key: 'disabled',
             types: [ 'boolean' ],
-            default: 'false',
+            default: false,
             options: [],
             detail: '禁用',
             documentation: '设置是否禁用'

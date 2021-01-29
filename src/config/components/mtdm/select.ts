@@ -57,7 +57,7 @@ const select: MTDMComponentDesc = {
         {
             key: 'mark',
             types: [ 'boolean' ],
-            default: 'false',
+            default: false,
             options: [],
             detail: '选中时的图标样式',
             documentation: 'mark为true时，勾选状态下会进行√标记'

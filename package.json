@@ -1,8 +1,9 @@
 {
-  "name": "mtdm-vue",
-  "displayName": "mtdm-vue-helper",
+  "name": "mtdm-vue-buff",
+  "displayName": "mtdm-vue-buff",
   "description": "mtdm-vue vscode plugin",
   "version": "0.0.1",
+  "publisher": "wanyuqing",
   "engines": {
     "vscode": "^1.52.0"
   },
@@ -12,37 +13,44 @@
   "activationEvents": [
 		"onLanguage:html",
 		"onLanguage:vue",
-		"onCommand:mtdm-vue-helper.search"
+		"onCommand:mtdm-vue-buff.search"
 	],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "mtdm-vue-helper.search",
+        "command": "mtdm-vue-buff.search",
         "title": "Hello World"
       }
     ],
     "keybindings": [
 			{
-				"command": "mtdm-vue-helper.search",
+				"command": "mtdm-vue-buff.search",
 				"key": "shift+cmd+s",
 				"when": "editorTextFocus"
 			}
 		],
     "configuration": {
       "type": "object",
-      "title": "MTDM Helper Configuration",
+      "title": "MTDM Buff Configuration",
       "properties": {
-        "mtdm-helper.sample-quotes": {
+        "mtdm-vue-buff.sample-quotes": {
           "type": "boolean",
           "default": false,
           "description": "是否为使用单引号"
+        },
+        "mtdm-vue-buff.indent-size": {
+          "type": "number",
+          "default": 2,
+          "description": "缩进"
         }
       }
     }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
+    "publish": "vsce package && vsce publish",
+    "package": "vsce package ",
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",

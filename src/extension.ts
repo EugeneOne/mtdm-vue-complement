@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 	 *  ...triggerCharacters: string[] 当用户输入其中一个字符时触发补全。
 	 * @wiki https://code.visualstudio.com/api/references/vscode-api#languages
 	 *  
-	 */ 
+	 */
 	let tagCompletion = vscode.languages.registerCompletionItemProvider(selector, new TagCompletionProvider(), '<');
 	let attrCompletion = vscode.languages.registerCompletionItemProvider(selector, new AttrCompletionProvider(), ' ', ':', '\n');
 	let attrValueCompletion = vscode.languages.registerCompletionItemProvider(selector, new AttrValueCompletionProvider(), '"', "'");

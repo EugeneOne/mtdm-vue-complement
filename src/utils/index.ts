@@ -16,7 +16,7 @@ export function getTextBeforePosition (document: TextDocument, position: Positio
 
 // 获取 package.json 这中的 contributes.configuration.properties 配置项数据
 export function getConfig (key: string): any {
-  const config = workspace.getConfiguration('mtdm-helper');
+  const config = workspace.getConfiguration('mtdm-vue-buff');
   return config.get(key);
 }
 

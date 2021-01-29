@@ -264,8 +264,8 @@ const calendar: MTDMComponentDesc = {
         attrs: {
             'v-model': '',
             ':formatter': '',
-            ':showHoliday': 'true',
-            ':showVacation': 'true',
+            ':show-holiday': 'true',
+            ':show-vacation': 'true',
             '@confirm': ''
         }
     }

@@ -69,7 +69,7 @@ declare interface MTDMComponentDesc {
     // 组件类型
     type: 'normal';
     // 来源
-    source: 'MTDM';
+    source: 'MTDM' | 'Plug';
     // 匹配字段
     // prefix: string
     // 组件名称
